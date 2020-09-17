@@ -8,6 +8,7 @@ export const setBackground = () => {
   }
 
   export const generateWeatherContainers = (data, num) => {
+    
     const weatherContainer = document.querySelector("#weather-container");
     weatherContainer.innerHTML = '';
     for (let i = 0; i < num; i++) {

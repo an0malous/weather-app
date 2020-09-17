@@ -3,7 +3,7 @@ import { getWeatherData, initGoogleApi} from './modules/api.js'
 
 const postInput = document.querySelector("#post-input");
 const submitBtn = document.querySelector("#submit-btn");
-setBackground();
+//setBackground();
 initGoogleApi();
 
 const getLatLngByZipcode = (zipcode) => {
