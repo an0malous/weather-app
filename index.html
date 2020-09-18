@@ -2,20 +2,27 @@
 <html>
 <head>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
 	<div id="wrapper">
 		<main>
 			<header>
-				<label id="input-label">postal code</label>
-				<input id="post-input" type="text" placeholder="Type a postal code" maxlength="8" minlength="7" />
-				<input id="submit-btn" type="button" value="Submit" />
+				<div>
+					<label id="input-label">postal code</label>
+					<input id="post-input" type="text" placeholder="Type a postal code" maxlength="8" minlength="7" />
+					<input id="submit-btn" type="button" value="Submit" />
+				</div>
+				<label id="location-name"></label>
 			</header>
-			<section id="weather-container"></section>
+			<section id="forecast">
+				<div class="is-hidden" id="weather-container-label"></div>
+				<div class="is-hidden" id="weather-container"><img src="./img/Bars-1s-81px.svg"></div>
+			</section>
 			<section id="bottom-container">
-				<div id="map"></div>
-				<div id="details-container"></div>
+				<div id="map" class="is-hidden"></div>
+				<div class="is-hidden" id="details-container"></div>
 			</section>
 		</main>
 	</div>	

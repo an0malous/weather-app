@@ -15,8 +15,8 @@ export default class Weather {
 				<div id="date">${this.year}-${this.month + 1}-${this.date}</div>
 				<div id="condition">${this.weather}</div>
 				<div id="temp-wrapper">
-					<div id="min">Min Temp: ${this.min}</div>
-					<div id=max">Max Temp: ${this.max}</div>
+					<div id="min">Min:  ${this.min}</div>
+					<div id=max">Max:  ${this.max}</div>
 				</div>
 				
 		

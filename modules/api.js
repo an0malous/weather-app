@@ -1,5 +1,5 @@
 import * as keys from './keys.js';
-import { generateWeatherContainers } from './utils.js'
+import { generateWeatherContainers, weatherContainerLabel } from './utils.js'
 
 export async function getWeatherData(lat, lon) {
     const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&
@@ -10,7 +10,7 @@ export async function getWeatherData(lat, lon) {
         generateWeatherContainers(data, 3)
       });
     } catch (err) {
-      console.log(err);
+      weatherContainerLabel.textContent = "Sorry, weather current not Available"; 
     }
   }
 
