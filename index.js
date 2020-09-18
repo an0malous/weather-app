@@ -1,4 +1,4 @@
-import { setBackground, initMap, weatherContainerLabel, locationNameLabel } from './modules/utils.js';
+import { setBackground, initMap, weatherContainerLabel, locationNameLabel, getLocationName } from './modules/utils.js';
 import { getWeatherData, initGoogleApi} from './modules/api.js'
 const map = document.querySelector('#map')
 const postInput = document.querySelector("#post-input");
@@ -19,12 +19,7 @@ const getLatLngByZipcode = (zipcode) => {
     if (status === google.maps.GeocoderStatus.OK) {
       const latitude = results[0].geometry.location.lat();
       const longitude = results[0].geometry.location.lng();
-      const validTypes = results[0].address_components.filter(item=> (item.types.includes("postal_code") || item.types.includes("country")) === false)
-        let y = validTypes
-        .map((item)=>item.long_name)
-        .reduce((next, curr)=> curr + ", " + next, )
-      locationNameLabel.textContent = y
-
+      locationNameLabel.textContent = getLocationName(results[0].address_components)
       initMap(latitude, longitude);
       getWeatherData(latitude, longitude);
     } else {

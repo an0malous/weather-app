@@ -141,3 +141,9 @@ main {
   letter-spacing: 3px;
   word-spacing: 10px;
 }
+
+#weather-date-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

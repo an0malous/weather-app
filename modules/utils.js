@@ -43,4 +43,14 @@ export const setBackground = () => {
   });
 }
 
+
+export const getLocationName = (api) => { //takes api results & filter parameters
+  const validTypes = api.filter(item=>(item.types.includes("postal_code") || item.types.includes("country")) === false)
+  const result = validTypes
+    .map((item)=>item.long_name)
+    .reduce((next, curr)=> curr + ", " + next, )
+  return result;
+}
+
+
   
