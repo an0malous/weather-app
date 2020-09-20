@@ -1,7 +1,13 @@
+import { generateLabel } from './utils.js'
+
 export const Trend = (data) => {
+   if(document.querySelector('.d3')){
+      document.querySelector('.d3').remove();
+   }
     const dataset = data.daily
     const dataset2 = data.daily
-    const svg = d3.select("#details-container")
+    generateLabel("h2", document.querySelector('#d3-container'), "d3-label", "container-label").textContent = "8 Day Trend"
+    const svg = d3.select("#d3-data")
                   .append("svg")
                   .attr("class", "d3")
     svg.selectAll("circle")
