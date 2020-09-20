@@ -3,6 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 	<link rel="stylesheet" href="styles/main2.css" />
 </head>
 <body>
@@ -12,18 +13,21 @@
 				<h1 id="input-label">postal code</h1>
 				<input id="post-input" type="text" placeholder="Type a postal code" maxlength="8" minlength="7" />
 				<input id="submit-btn" type="button" value="Submit" />
-				<label id="location-name"></label>
+				<h2 id="location-name"></h2>
+				<img id="loading-spinner" class="is-hidden" alt="Loading Spinner" src="./img/Bars-1s-81px.svg">
 			</header>
 			
 			<section id="forecast">
-				<h2 class="is-hidden" id="weather-container-label">Three Day ForeCast</h2>
-				<div class="is-hidden" id="weather-container"><img src="./img/Bars-1s-81px.svg"></div>
+				<h2 class="is-hidden container-label" id="weather-container-label">3 Day ForeCast</h2>
+				<div class="is-hidden" id="weather-container"></div>
 			</section>
 			<section id="bottom-container">
-				<h2 id="map" class="is-hidden container-label"></h2>
-				<div class="container-label is-hidden" id="map-container-label">Map</div>
-				<div id="details-container"></div>
-				<h2class=" container-label is-hidden" id="d3-container-label">8 Day Trend</h2>
+				<article id="location-container">
+					<article id="map" class="is-hidden" container-label"></article>
+				</article>
+				<article id="d3-container">
+					<article id="d3-data"></article>
+				</article>
 			</section>
 		</main>
 	</div>
