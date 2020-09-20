@@ -1,4 +1,5 @@
 import * as keys from './keys.js';
+import { Trend } from './Trend.js'
 import { generateWeatherContainers, weatherContainerLabel } from './utils.js'
 
 export async function getWeatherData(lat, lon) {
@@ -7,10 +8,12 @@ export async function getWeatherData(lat, lon) {
     try {
       const res = await fetch(api);
       res.json().then((data) => {
+        console.log(data)
+        Trend(data)
         generateWeatherContainers(data, 3)
       });
     } catch (err) {
-      weatherContainerLabel.textContent = "Sorry, weather current not Available"; 
+      weatherContainerLabel.textContent = "Sorry, weather currently not Available"; 
     }
   }
 

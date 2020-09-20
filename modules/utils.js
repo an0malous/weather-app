@@ -27,7 +27,7 @@ export const setBackground = () => {
     weatherContainerLabel.textContent = "Three Day Forecast";
     weatherContainer.innerHTML = '';
     for (let i = 0; i < num; i++) {
-        let newWeatherContainer = document.createElement("div");
+        let newWeatherContainer = document.createElement("article");
         newWeatherContainer.id = `container${i + 1}`;
         newWeatherContainer.classList.add("weather");
         const newWeatherInfo = new Weather(data.daily[i]);
