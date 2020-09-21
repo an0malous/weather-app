@@ -40,6 +40,7 @@ export const setBackground = () => {
  
   export const generateWeatherContainers = (data, num) => {
     const weatherContainer = document.querySelector("#weather-container");
+    generateLabel("h2", document.querySelector('#forecast'), "weather-container-label", "container-label").textContent = "3 Day Forecast"
     weatherContainer.innerHTML = '';
     for (let i = 0; i < num; i++) {
         const newWeatherContainer = document.createElement("article");

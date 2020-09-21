@@ -1,0 +1,94 @@
+
+#wrapper {
+    position: absolute;
+    top: 0;
+    display: block;
+    justify-content: none;;
+    align-items: none;
+ 
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+    
+  }
+  
+#weather-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .weather {
+    color: white;
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+  }
+  header {
+    display: flex;
+    flex-direction: none;
+    justify-content: none;
+    height: auto;
+    width: 100%;
+  
+  }
+  
+  main {
+    width: 100%;
+    margin: 0.2rem;
+    padding-top: 0.5rem;
+  }
+
+  #bottom-container {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+  }
+  
+  #map {
+    height: 100%;
+    width: 100%;
+    margin: 0.2rem;
+  }
+  
+  
+#details-container {
+    color: white;
+
+    margin: .2rem;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  #post-input {
+    margin: 0.2rem;
+
+   border: 1px solid black;
+   padding: 5px;
+    outline: none;
+    border-radius: 5px;
+  }
+  
+  #location-name {
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px rgb(0, 0, 0);
+    font-weight: 900;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+  }
+
+  #input-label {
+    font-size: 1rem;
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    }

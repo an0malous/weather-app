@@ -1,0 +1,62 @@
+
+
+.weather {
+    width: 33%;
+    padding: 0.4rem 0.4rem;
+  }
+
+
+  #location-name {
+    margin: 1.2rem;
+    font-size: 1.7rem;
+  }
+
+  #temp-wrapper {
+    width: 100%;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #condition {
+    display: flex;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px black;
+    text-transform: uppercase;
+  }
+
+  .container-label {
+    margin: 1rem 0;
+  }
+
+  main {
+    width: 95%;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .date {
+    font-size: 1.2rem;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

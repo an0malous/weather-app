@@ -4,22 +4,26 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-	<link rel="stylesheet" href="styles/main2.css" />
+	<link rel="stylesheet" href="styles/main.css" />
+	<link rel="stylesheet" type="text/css" href="styles/mobile.tablet.css" media="screen and (min-width: 481px)" />
+	<link rel="stylesheet" type="text/css" href="styles/desktop.css" media="screen and (min-width: 768px)" />
 </head>
 <body>
-	<div class="centered" id="wrapper">
-		<main>
+	<div id="wrapper">
+		<main class="centered">
 			<header>
-				<h1 id="input-label">postal code</h1>
-				<input id="post-input" type="text" placeholder="Type a postal code" maxlength="8" minlength="7" />
-				<input id="submit-btn" type="button" value="Submit" />
-				<h2 id="location-name"></h2>
-				<img id="loading-spinner" class="is-hidden" alt="Loading Spinner" src="./img/Bars-1s-81px.svg">
+				<section>
+					<h1 id="input-label">postal code</h1>
+					<input id="post-input" type="text" placeholder="167-0022" maxlength="8" minlength="7" />
+					<input id="submit-btn" type="button" value="Submit" />
+				</section>
+				<section>
+					<h2 id="location-name"></h2>
+					<img id="loading-spinner" class="is-hidden" alt="Loading Spinner" src="./img/Bars-1s-81px.svg">
+				</section>
 			</header>
-			
 			<section id="forecast">
-				<h2 class="is-hidden container-label" id="weather-container-label">3 Day ForeCast</h2>
-				<div class="is-hidden" id="weather-container"></div>
+				<article class="is-hidden" id="weather-container"></article>
 			</section>
 			<section id="bottom-container">
 				<article id="location-container">
