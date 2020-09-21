@@ -21,6 +21,7 @@
 
 #wrapper::before {
 content: '';
+z-index: 0;
 position: fixed;
 height: 100%;
 width: 100%;
@@ -28,7 +29,7 @@ background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
 }
 
 #wrapper *{
-z-index: 2
+z-index: 10
 }*
 
 header {
@@ -50,6 +51,7 @@ body {
 main {
   padding: 1rem 0.1rem;
   width: 100%;
+  height: 100%;
 }
 input {
     width: 100%;
@@ -79,10 +81,10 @@ input {
       }
     
 #post-input {
-    width: 50%;
+    width: 70%;
     height: 2.5rem;
     background: rgba(0, 0, 0, 0.4);
-    color: white;
+    color: rgb(245, 167, 0);
     font-size: 1.3rem;
     text-align: center;
     border-radius: 5px;
@@ -124,9 +126,11 @@ input {
   }
 
   .container-label {
+    position: relative;
+    z-index: 2;
     padding: 0.3rem;
     font-size: 1rem;
-    background: rgb(180, 180, 180);
+    background: rgb(180, 180, 180, 0.8);
     border-radius: 5px;
     font-weight: 800;
   }
@@ -175,3 +179,15 @@ input {
     font-size: 0.8rem;
   }
   
+  .warning-label {
+    background: rgb(218, 82, 82);
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+    text-shadow: 1px 1px black;
+  }

@@ -1,6 +1,5 @@
 import Weather from './Weather.js';
 
-export const weatherContainerLabel = document.querySelector('#weather-container-label');
 export const locationNameLabel = document.querySelector('#location-name');
 
 export const generateLabel = (tag, prependTo, id , className) => {
