@@ -23,16 +23,16 @@ export const setBackground = () => {
     const time = new Date().getHours();
     switch(true){
       case time >= 19 || time < 6:
-        document.body.background  = '../img/alexander-andrews-yOIT88xWkbg-unsplash.jpg';
+        document.body.background  = '../img/night.jpg';
         break;
       case  time >= 6 && time < 11:
-        document.body.background  = '../img/federico-respini-sYffw0LNr7s-unsplash.jpg';
+        document.body.background  = '../img/morning.jpg';
         break;
       case time >= 11  && time < 16:
-        document.body.background  = '../img/olly-allars-xjMIfLpGBtM-unsplash.jpg';
+        document.body.background  = '../img/afternoon.jpg';
         break;
       case time >= 16 && time < 19:
-        document.body.background  = '../img/ernest-brillo-Qi8CvonsYnM-unsplash.jpg';
+        document.body.background  = '../img/evening.jpg';
         break;
     }
   }
