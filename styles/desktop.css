@@ -33,6 +33,7 @@ main {
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+    height: auto;
   }
   
   #location-container {
@@ -42,6 +43,9 @@ main {
     background: 0;
   }
 
+  #map {
+    height: 400px;
+  }
   #d3-container {
       width: 49%;
       border-radius: 0;
