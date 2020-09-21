@@ -14,22 +14,23 @@ export default class Weather {
 
 	pickDay(day){
 		const daysOfTheWeek = {
-			0: 'Sun',
-			1: 'Mon',
-			2: 'Tue',
-			3: 'Wed',
-			4: 'Thur',
-			5: 'Fri',
-			6: 'Sat'
+			0: 'Sunday',
+			1: 'Monday',
+			2: 'Tuesday',
+			3: 'Wednesday',
+			4: 'Thursday',
+			5: 'Friday',
+			6: 'Saturday'
 		}
 		return daysOfTheWeek[day];
 	}
 	
 	renderWeather () {
 		return `
-		<header id="weather-date-wrapper">
-			<h3 id="date">${this.year}-${this.month + 1}-${this.date}  </h3>
-		</header>  ${this.pickDay(this.day)}</div>
+		<header class="date" id="weather-date-wrapper">
+			<h3>${this.year}-${this.month + 1}-${this.date}  </h3>
+			 <div>${this.pickDay(this.day)}</div>
+		</header> 
 		<img alt="Weather Condition" src="http://openweathermap.org/img/wn/${this.icon}@2x.png" />
 		<p id="condition">${this.weather}</p>
 		<div id="temp-wrapper">
