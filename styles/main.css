@@ -54,6 +54,9 @@ main {
   height: 100%;
 }
 input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
     width: 100%;
 }
 
