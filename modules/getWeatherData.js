@@ -31,7 +31,7 @@ export async function getWeatherData(lat, lng) {
       document.querySelector("main header"),
       "null",
       "warning-label"
-    ).innerHTML = "Sorry could not display Weather (Check your add blocker).";
+    ).innerHTML = "Sorry could not display Weather (Check add blocker or other extensions).";
     loadingSpinner.classList.add("is-hidden");
   }
 }
