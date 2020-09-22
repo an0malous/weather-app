@@ -1,7 +1,7 @@
 import { displayWeatherTrends } from './displayWeatherTrends.js';
 import WeatherDataTemplate from './WeatherDataTemplate.js';
-import { generateLabel, loadingSpinner } from './utils.js';
-
+import { generateLabel, loadingSpinner, locationNameLabel, getLocationName, postInput } from './utils.js';
+import { getLatLngByZipcode } from '../index.js'
 const api = {
   base: "https://api.openweathermap.org/data/2.5/onecall?",
   KEY: "5d020c5c368a5eab9c90bab8ff434f18",
@@ -52,8 +52,52 @@ const displayWeatherResults = (api, numOfContainers) => {
 
 function initMap(lat, lon) {
   generateLabel("h2", document.querySelector('#location-container'), "location-label", "container-label").textContent = "Location";
-  new google.maps.Map(document.getElementById("map"), {
-  center: { lat: lat, lng: lon },
+  var myLatlng = new google.maps.LatLng(lat, lon);
+var mapOptions = {
   zoom: 14,
+  center: myLatlng
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+// Place a draggable marker on the map
+var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    draggable:true,
+    title:"Drag me to get the Weather somewhere else"
+});
+
+map.addListener('center_changed', function() {
+  // 3 seconds after the center of the map has changed, pan back to the
+  // marker.
+  window.setTimeout(function() {
+    map.panTo(marker.getPosition());
+  }, 2000);
+});
+
+marker.addListener('click', function() {
+  map.setCenter(marker.getPosition());
+  var lat = marker.getPosition().lat();
+  var lon = marker.getPosition().lng();
+
+  var geocoder = new google.maps.Geocoder;
+  geocoder.geocode({'location': myLatlng }, async function(results, status) {
+  
+      try {
+        postInput.value = results[0].address_components[results[0].address_components.length - 1].long_name        
+        getWeatherData(lat, lon)
+      } catch (error){
+        generateLabel(
+          "h2",
+          document.querySelector("main header"),
+          "api-warning",
+          "warning-label"
+        ).innerText = `Sorry, could not get location information. Please try a different location.`;
+      }
+    })
+
+  
+
 });
 }
+
