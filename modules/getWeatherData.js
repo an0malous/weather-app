@@ -1,7 +1,6 @@
 import { displayWeatherTrends } from "./displayWeatherTrends.js";
 import WeatherDataTemplate from "./WeatherDataTemplate.js";
-import { generateLabel, loadingSpinner, postInput, regex, errorWarning } from "./utils.js";
-import { getLatLngByZipcode } from "../index.js";
+import { generateLabel, loadingSpinner, postInput, regex } from "./utils.js";
 const api = {
   base: "https://api.openweathermap.org/data/2.5/onecall?",
   KEY: "5d020c5c368a5eab9c90bab8ff434f18",
@@ -26,9 +25,14 @@ export async function getWeatherData(lat, lon) {
       displayWeatherTrends(data);
     });
   } catch (err) {
-    loadingSpinner.classList.add("is-hidden");
-    errorWarning.innerText = `Sorry Could not get weather data.`;
     console.log(err);
+    generateLabel(
+      "h2",
+      document.querySelector("main header"),
+      "null",
+      "warning-label"
+    ).innerHTML = "Sorry could not display Weather.";
+    loadingSpinner.classList.add("is-hidden");
   }
 }
 
@@ -81,28 +85,37 @@ function initMap(lat, lon) {
     }, 3000);
   });
 
-  marker.addListener("click", getZipCodeFromMap());
-}
-
-function getZipCodeFromMap() {
-  map.setCenter(marker.getPosition());
-  var lat = marker.getPosition().lat();
-  var lon = marker.getPosition().lng();
-
-  var geocoder = new google.maps.Geocoder();
-  geocoder.geocode({ location: myLatlng }, function (results, status) {
-    if (status === "OK") {
-      const res =
-        results[0].address_components[results[0].address_components.length - 1]
-          .long_name;
-      console.log(res);
-      if (regex.test(res)) {
-        postInput.value = res;
+  marker.addListener("click", function () {
+    map.setCenter(marker.getPosition());
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ location: myLatlng }, function (results, status) {
+      if (status === "OK") {
+        const res =
+          results[0].address_components[
+            results[0].address_components.length - 1
+          ].long_name;
+        console.log(res);
+        //test to see if new Latlng is japan postal code.
+        if (regex.test(res)) {
+          //if jp postal code put result val into <input>
+          postInput.value = res;
+        } else {
+          generateLabel(
+            "h2",
+            document.querySelector("main header"),
+            "null",
+            "warning-label"
+          ).innerText =
+            "Sorry, selected location does not have a valid Japane postal code.";
+        }
       } else {
-        errorWarning.innerText = `Sorry not a valid Japan postal Code.`;
+        generateLabel(
+          "h2",
+          document.querySelector("main header"),
+          "null",
+          "warning-label"
+        ).innerText = "A connection error occured. Please try again later.";
       }
-    } else {
-      errorWarning.innerText = `Sorry, no valid Japan postal code exists at these coordinates. Please try a again.`;
-    }
+    });
   });
 }
