@@ -13,7 +13,7 @@ export async function getWeatherData(lat, lng) {
   try {
     const res = await fetch(
       api.base +
-        `lat=${lat}&lon=${lon}&exclude=${api.exclude}&units=${api.units}&appid=${api.KEY}`
+        `lat=${lat}&lon=${lng}&exclude=${api.exclude}&units=${api.units}&appid=${api.KEY}`
     );
     res.json().then((data) => {
       const main = document.querySelector("main");
