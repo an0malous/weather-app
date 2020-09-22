@@ -9,7 +9,7 @@ const api = {
   language: "en",
 };
 
-export async function getWeatherData(lat, lon) {
+export async function getWeatherData(lat, lng) {
   try {
     const res = await fetch(
       api.base +
@@ -17,7 +17,7 @@ export async function getWeatherData(lat, lon) {
     );
     res.json().then((data) => {
       const main = document.querySelector("main");
-      initMap(lat, lon);
+      initMap(lat, lng);
       displayWeatherResults(data, 3);
       main.classList.remove("centered");
       loadingSpinner.classList.add("is-hidden");
@@ -85,16 +85,19 @@ function initMap(lat, lon) {
     }, 3000);
   });
 
+  //take pin coordinates and get postal code 
   marker.addListener("click", function () {
     map.setCenter(marker.getPosition());
-    var geocoder = new google.maps.Geocoder();
+    const lat = marker.getPosition().lat();
+    const lng = marker.getPosition().lng();
+    myLatlng = new google.maps.LatLng(lat, lng);
+    const geocoder = new google.maps.Geocoder();
     geocoder.geocode({ location: myLatlng }, function (results, status) {
       if (status === "OK") {
         const res =
           results[0].address_components[
             results[0].address_components.length - 1
           ].long_name;
-        console.log(res);
         //test to see if new Latlng is japan postal code.
         if (regex.test(res)) {
           //if jp postal code put result val into <input>

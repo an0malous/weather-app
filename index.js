@@ -68,12 +68,12 @@ export const getLatLngByZipcode = (zipcode) => {
   const address = zipcode;
   geocoder.geocode({ address: "zipcode " + address }, (results, status) => {
     if (status === "OK") {
-      const latitude = results[0].geometry.location.lat();
-      const longitude = results[0].geometry.location.lng();
+      const lat = results[0].geometry.location.lat();
+      const lng = results[0].geometry.location.lng();
       locationNameLabel.textContent = getLocationName(
         results[0].address_components
       );
-      getWeatherData(latitude, longitude);
+      getWeatherData(lat, lng);
     } else {
       generateLabel(
         "h2",
