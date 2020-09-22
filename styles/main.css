@@ -200,3 +200,7 @@ input {
   #location-container {
     width: 100%;
   }
+
+  #d3-data {
+    margin-top: 0.2rem;
+  }

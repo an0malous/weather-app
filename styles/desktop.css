@@ -1,7 +1,7 @@
 
 main {
     width: 85%;
-    max-width: 960px;
+    max-width: 1440px;
 }
 .weather {
     width: 32%;
@@ -44,7 +44,7 @@ main {
   }
 
   #map {
-    height: 400px;
+    height: 350px;
   }
   #d3-container {
       width: 49%;
