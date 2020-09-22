@@ -64,8 +64,11 @@ header section {
   border-radius: 5px;
   outline: none;
   color: black;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
   border: 1px solid black;
-  background:  rgba(255, 255, 255, 0.2);
+  background:  rgba(255, 255, 255, 0.8);
 }
 
 #post-input {
