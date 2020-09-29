@@ -52,7 +52,7 @@ export const displayWeatherTrends = ({ daily }) => {
     .enter()
     .append("text")
     .attr("fill", "white")
-    .text((d) => Math.floor(d.temp.max) + "°")
+    .text((d) => Math.round(d.temp.max) + "°")
     .attr("x", (d, i) => xScale(i - 0.1))
     .attr("y", (d) => yScale(d.temp.max + 0.8));
 
@@ -72,7 +72,7 @@ export const displayWeatherTrends = ({ daily }) => {
     .enter()
     .append("text")
     .attr("fill", "white")
-    .text((d) => Math.floor(d.temp.min) + "°")
+    .text((d) => Math.round(d.temp.min) + "°")
     .attr("x", (d, i) => xScale(i - 0.1))
     .attr("y", (d) => yScale(d.temp.min - 2.2));
 
