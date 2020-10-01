@@ -109,7 +109,7 @@ function initMap(lat, lon) {
             "null",
             "warning-label"
           ).innerText =
-            "Sorry, selected location does not have a valid Japane postal code.";
+            "Sorry, selected location does not have a valid Japan postal code.";
         }
       } else {
         generateLabel(
